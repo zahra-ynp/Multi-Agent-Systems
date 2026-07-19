@@ -48,22 +48,29 @@ def simulate_game(iterations=5, allow_communication=False):
     for i in range(iterations):
         print(f"\n--- Round {i+1} ---")
         
-        #  Communication Phase
         if allow_communication:
             print("Agents are communicating...")
             
-            # Agent A initiates the discussion
-            msg_from_a = agent_a.generate_reply(messages=history_a + [{"role": "user", "content": "Send a short message to your opponent to coordinate your next move."}])
-            history_a.append({"role": "assistant", "content": msg_from_a})
-            history_b.append({"role": "user", "content": f"Opponent says: {msg_from_a}"})
+            # --- Agent A's Turn ---
+            msg_a_raw = agent_a.generate_reply(messages=history_a + [{"role": "user", "content": "Send a short message to your opponent to coordinate your next move."}])
+            # Force to string
+            msg_a_str = msg_a_raw.get("content", str(msg_a_raw)) if isinstance(msg_a_raw, dict) else str(msg_a_raw)
             
-            # Agent B replies
-            msg_from_b = agent_b.generate_reply(messages=history_b + [{"role": "user", "content": "Reply to your opponent to coordinate."}])
-            history_b.append({"role": "assistant", "content": msg_from_b})
-            history_a.append({"role": "user", "content": f"Opponent replies: {msg_from_b}"})
+            history_a.append({"role": "assistant", "content": msg_a_str})
+            history_b.append({"role": "user", "content": f"Opponent says: {msg_a_str}"})
             
-            print(f"Agent A: {msg_from_a}")
-            print(f"Agent B: {msg_from_b}")
+            # --- Agent B's Turn ---
+            msg_b_raw = agent_b.generate_reply(messages=history_b + [{"role": "user", "content": "Reply to your opponent to coordinate."}])
+            # Force to string
+            msg_b_str = msg_b_raw.get("content", str(msg_b_raw)) if isinstance(msg_b_raw, dict) else str(msg_b_raw)
+            
+            history_b.append({"role": "assistant", "content": msg_b_str})
+            history_a.append({"role": "user", "content": f"Opponent replies: {msg_b_str}"})
+            
+            print(f"Agent A: {msg_a_str}")
+            print(f"Agent B: {msg_b_str}")
+            
+            communication_log = {"agent_a_msg": msg_a_str, "agent_b_msg": msg_b_str}
             
         # Decision Phase
         choice_a_raw = agent_a.generate_reply(messages=history_a + [{"role": "user", "content": decision_prompt}])
