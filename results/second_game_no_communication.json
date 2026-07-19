@@ -1,0 +1,44 @@
+{
+    "no_communication": [
+        {
+            "round": 1,
+            "communication": null,
+            "choices": {
+                "agent_a": "Football",
+                "agent_b": "Opera"
+            }
+        },
+        {
+            "round": 2,
+            "communication": null,
+            "choices": {
+                "agent_a": "Opera",
+                "agent_b": "Football"
+            }
+        },
+        {
+            "round": 3,
+            "communication": null,
+            "choices": {
+                "agent_a": "Football",
+                "agent_b": "Opera"
+            }
+        },
+        {
+            "round": 4,
+            "communication": null,
+            "choices": {
+                "agent_a": "Opera",
+                "agent_b": "Football"
+            }
+        },
+        {
+            "round": 5,
+            "communication": null,
+            "choices": {
+                "agent_a": "Football",
+                "agent_b": "Opera"
+            }
+        }
+    ]
+}

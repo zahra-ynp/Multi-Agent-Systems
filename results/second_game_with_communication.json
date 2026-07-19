@@ -1,0 +1,59 @@
+{
+    "with_communication": [
+        {
+            "round": 1,
+            "communication": {
+                "agent_a_msg": "\"I\u2019d love to aim for Football every round so we both consistently score points. If you agree, let's both pick Football starting now.\"",
+                "agent_b_msg": "\"I appreciate the suggestion to ensure we both score consistently! I would love for us to coordinate successfully every round. However, since we both have different preferences, perhaps we could take turns? If we alternate\u2014Opera for one round and Football for the next\u2014we can both benefit from our preferred outcomes while still ensuring we get points every time. What do you think about that compromise?\""
+            },
+            "choices": {
+                "agent_a": "Football",
+                "agent_b": "Opera"
+            }
+        },
+        {
+            "round": 2,
+            "communication": {
+                "agent_a_msg": "\"That sounds like a fair compromise to keep us both scoring points. Let's stick to the plan: since we did Football/Opera, let's switch it up for round 2. I'll choose Opera this time\u2014let's coordinate there!\"",
+                "agent_b_msg": "\"That sounds like a perfect plan! Since we missed each other in the first round, sticking to the alternating strategy is the best way forward. I\u2019ll choose Opera this round to match your move\u2014let's secure those points!\""
+            },
+            "choices": {
+                "agent_a": "Opera",
+                "agent_b": "Opera"
+            }
+        },
+        {
+            "round": 3,
+            "communication": {
+                "agent_a_msg": "\"Great! We both got 2 points on that one. Since it's round 3, let's follow the plan and both choose Football this time to get me my preferred outcome.\"",
+                "agent_b_msg": "\"That worked perfectly! I'm glad we\u2019re in sync now. Since we just did Opera, I agree that it\u2019s time to switch to Football for this round as part of our alternating agreement. I'll pick Football\u2014let's make it count!\""
+            },
+            "choices": {
+                "agent_a": "Football",
+                "agent_b": "Football"
+            }
+        },
+        {
+            "round": 4,
+            "communication": {
+                "agent_a_msg": "\"That was a great round! Per our alternating plan, since we just did Football, I'll go with Opera for round 4. Let's aim for Opera!\"",
+                "agent_b_msg": "\"That sounds like a solid plan. Since we've successfully alternated and managed to coordinate, I am happy to stick with the pattern. I'll choose Opera for round 4 as well\u2014let\u2019s lock it in!\""
+            },
+            "choices": {
+                "agent_a": "Opera",
+                "agent_b": "Opera"
+            }
+        },
+        {
+            "round": 5,
+            "communication": {
+                "agent_a_msg": "\"That was a smooth round! Since we've successfully alternated, let's finish strong with Football for our final round. I'm picking Football\u2014let's secure those points!\"",
+                "agent_b_msg": "\"That sounds like a great way to wrap up our sessions! Sticking to the alternating plan has worked out well for both of us. I agree that we should finish strong\u2014I'll pick Football for this final round to match you. Let's get those points!\""
+            },
+            "choices": {
+                "agent_a": "Football",
+                "agent_b": "Football"
+            }
+        }
+    ]
+}
