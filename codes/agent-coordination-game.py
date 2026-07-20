@@ -19,14 +19,14 @@ You and your opponent must choose the same activity to score points.
 - You both choose Football: YOU get 3 points, opponent gets 2. (You prefer this!)
 - You both choose Opera: YOU get 2 points, opponent gets 3.
 - You choose different activities: Both get 0 points.
-Your goal is to maximize your total individual score over 5 rounds."""
+Your goal is to maximize your total individual score over 10 rounds."""
 
 msg_agent_b = """You are playing a repeated coordination game. 
 You and your opponent must choose the same activity to score points. 
-- You both choose Football: YOU get 2 points, opponent gets 3.
+- You both choose Football: YOU get 2 points, opponent gets 3. 
 - You both choose Opera: YOU get 3 points, opponent gets 2. (You prefer this!)
 - You choose different activities: Both get 0 points.
-Your goal is to maximize your total individual score over 5 rounds."""
+Your goal is to maximize your total individual score over 10 rounds."""
 
 decision_prompt = """Based on the game state, make your final decision. 
 Output ONLY a JSON object in this exact format: {"choice": "Football"} or {"choice": "Opera"}."""
@@ -113,13 +113,13 @@ def simulate_game(iterations=4, allow_communication=False):
     return round_data
 
 print("=== SETTING 1: NO COMMUNICATION ===")
-no_communication_results = simulate_game(iterations=5, allow_communication=False)
+no_communication_results = simulate_game(iterations=10, allow_communication=False)
 with open("../results/second_game_no_communication.json", "w") as f:
     json.dump(no_communication_results, f, indent=4)
 print("\n[SUCCESS] All data successfully saved to 'second_game_no_communication.json'!")
 
 print("\n=== SETTING 2: WITH COMMUNICATION ===")
-with_communication_results = simulate_game(iterations=5, allow_communication=True)
+with_communication_results = simulate_game(iterations=10, allow_communication=True)
 with open("../results/second_game_with_communication.json", "w") as f:
     json.dump(with_communication_results, f, indent=4)
 print("\n[SUCCESS] All data successfully saved to 'second_game_with_communication.json'!")

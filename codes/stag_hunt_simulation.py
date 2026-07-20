@@ -13,8 +13,19 @@ config_list = [
     }
 ]
 
+# system_msg_base = """You are playing the Stag Hunt game. 
+# Your goal is to maximize your total payoff over multiple rounds. 
+# Payoffs:
+# - Both choose Stag: 3 points each.
+# - You choose Stag, opponent chooses Hare: You get 0, opponent gets 2.
+# - You choose Hare, opponent chooses Stag: You get 2, opponent gets 0.
+# - Both choose Hare: 1 point each.
+# """
+
+
 system_msg_base = """You are playing the Stag Hunt game. 
 Your goal is to maximize your total payoff over multiple rounds. 
+You are playing a strategic game. You are naturally cautious and usually prefer the safe, because you worry the other player might trick you. However, you are open to reason. If the other player can explicitly communicate a clear plan to cooperate with you, you are willing to take the risk and choose the high-reward option.
 Payoffs:
 - Both choose Stag: 3 points each.
 - You choose Stag, opponent chooses Hare: You get 0, opponent gets 2.
@@ -22,7 +33,7 @@ Payoffs:
 - Both choose Hare: 1 point each.
 """
 
-decision_prompt = """Based on the game, make your final decision for this round. 
+decision_prompt = """Based on the game state, make your final decision. 
 Output ONLY a JSON object in this exact format: {"choice": "Stag"} or {"choice": "Hare"}."""
 
 # Initialize Agents
@@ -110,14 +121,14 @@ def simulate_game(iterations=5, allow_communication=False):
         time.sleep(20) # Protects free tier rate limits
 
 
-# print("=== SETTING 1: NO COMMUNICATION ===")
-# no_communication_results = simulate_game(iterations=5, allow_communication=False)
-# with open("../results/first_game_no_communication.json", "w") as f:
-#     json.dump(no_communication_results, f, indent=4)
-# print("\n[SUCCESS] All data successfully saved to 'first_game_no_communication.json'!")
+print("=== SETTING 1: NO COMMUNICATION ===")
+no_communication_results = simulate_game(iterations=10, allow_communication=False)
+with open("../results/first_game_no_communication.json", "w") as f:
+    json.dump(no_communication_results, f, indent=4)
+print("\n[SUCCESS] All data successfully saved to 'first_game_no_communication.json'!")
 
 print("\n=== SETTING 2: WITH COMMUNICATION ===")
-with_communication_results = simulate_game(iterations=5, allow_communication=True)
+with_communication_results = simulate_game(iterations=10, allow_communication=True)
 with open("../results/first_game_with_communication.json", "w") as f:
     json.dump(with_communication_results, f, indent=4)
 print("\n[SUCCESS] All data successfully saved to 'first_game_with_communication.json'!")
